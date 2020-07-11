@@ -1,0 +1,18 @@
+[general]
+name=String Reader
+qgisMinimumVersion=3.15
+description=Reads SurPac string files
+version=0.1
+author=Basil Eric C. Rabi
+email=ericbasil.rabi@gmail.com
+about=Reads a string file which is used in SurPac and converts it into 3D line strings.
+tracker=https://github.com/basilrabi/stringreader/issues
+repository=https://github.com/basilrabi/stringreader
+hasProcessingProvider=no
+tags=python
+homepage=https://github.com/basilrabi/stringreader
+category=Vector
+icon=icon.png
+experimental=False
+deprecated=False
+server=False
