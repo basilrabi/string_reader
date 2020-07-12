@@ -18,15 +18,14 @@
 # *																		    *
 # ***************************************************************************/
 
-SOURCES = \
-	__init__.py \
-	string_reader.py string_reader_dialog.py
-
 PLUGINNAME = string_reader
 
 PY_FILES = \
 	__init__.py \
-	string_reader.py string_reader_dialog.py
+	geom.py \
+	string_importer.py \
+	string_reader.py \
+	string_reader_dialog.py
 
 UI_FILES = string_reader_dialog_base.ui
 

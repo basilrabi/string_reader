@@ -30,6 +30,7 @@ from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QFileDialog
 from . import resources
+from .string_importer import import_str
 from .string_reader_dialog import StringReaderDialog
 
 
@@ -98,4 +99,4 @@ class StringReader:
         result = self.dlg.exec_()
         if result:
             filename = self.dlg.lineEdit.text()
-            print(filename)
+            import_str(filename)
