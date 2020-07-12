@@ -32,16 +32,15 @@ class Segment:
 
     def __init__(self, points):
         self.str_id = None
-        self.point_list = []
+        self.point_list = points
         self.description_count = 0
         self.description_list = [None] * 100
-        for point in points:
+        for point in self.point_list:
             if not self.str_id:
                 self.str_id = point.str_id
             else:
                 if self.str_id != point.str_id:
                     raise Exception('String id of points do not match.')
-            self.point_list.append(Point(x=point.x, y=point.y, z=point.z))
             for i in range(0, len(point.descriptions)):
                 if Point.description_count < (i + 1):
                     Point.description_count = i + 1

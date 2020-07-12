@@ -25,8 +25,7 @@
 # pylint: disable=import-error
 # pylint: disable=relative-beyond-top-level
 
-import os.path
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
+import os
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QFileDialog
 from . import resources
