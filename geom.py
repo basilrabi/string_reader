@@ -56,7 +56,6 @@ class Segment:
         feature.setGeometry(QgsGeometry.fromWkt(self.asWKT()))
         attributes = [self.str_id]
         attributes.extend(self.getAttributes())
-        print(attributes)
         feature.setAttributes(attributes)
         return feature
 
@@ -68,13 +67,6 @@ class Segment:
 
     def getAttributes(self):
         return self.description_list[0:Point.description_count]
-
-    def printDescriptions(self):
-        if self.description_count > 0:
-            for_printing = self.getAttributes()
-            print('::'.join(for_printing))
-        else:
-            print('')
 
     @staticmethod
     def qgsFields():
