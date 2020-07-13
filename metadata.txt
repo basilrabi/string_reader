@@ -1,6 +1,6 @@
 [general]
 name=String Reader
-qgisMinimumVersion=3.15
+qgisMinimumVersion=3.10
 description=Reads SurPac string files
 version=0.1
 author=Basil Eric C. Rabi
