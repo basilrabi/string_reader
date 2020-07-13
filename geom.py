@@ -60,9 +60,7 @@ class Segment:
         return feature
 
     def asWKT(self):
-        coordinates = []
-        for point in self.point_list:
-            coordinates.append(point.coordinates())
+        coordinates = [point.coordinates() for point in self.point_list]
         return 'LINESTRING (' + ','.join(coordinates) + ')'
 
     def getAttributes(self):
@@ -72,7 +70,5 @@ class Segment:
     def qgsFields():
         fields = [QgsField('string', QVariant.Int)]
         if Point.description_count > 0:
-            for i in range(1, Point.description_count + 1):
-                field_name = f'd{i}'
-                fields.append(QgsField(field_name, QVariant.String))
+            fields.extend([QgsField(f'd{i}', QVariant.String) for i in range(1, Point.description_count + 1)])
         return fields

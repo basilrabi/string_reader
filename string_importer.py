@@ -36,8 +36,7 @@ def import_str(string_file):
         pr = vl.dataProvider()
         pr.addAttributes(Segment.qgsFields())
         vl.updateFields()
-        for segment in segments:
-            pr.addFeatures([segment.asQgsFeature()])
+        pr.addFeatures([segment.asQgsFeature() for segment in segments])
         vl.updateExtents()
         QgsProject.instance().addMapLayer(vl)
     else:
