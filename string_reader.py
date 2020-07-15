@@ -38,6 +38,7 @@ class StringReader:
     def __init__(self, iface):
         self.actions = []
         self.dlg = StringReaderDialog()
+        self.file_list = []
         self.first_start = None
         self.iface = iface
         self.menu = 'String Reader'
@@ -85,10 +86,11 @@ class StringReader:
             self.iface.removeToolBarIcon(action)
 
     def select_string_file(self):
-        filename = QFileDialog.getOpenFileName(
+        files = QFileDialog.getOpenFileNames(
             self.dlg, 'Select string file', '', '*.str'
         )
-        self.dlg.lineEdit.setText(filename[0])
+        self.file_list = files[0]
+        self.dlg.lineEdit.setText(','.join(self.file_list))
 
     def run(self):
         if self.first_start == True:
@@ -97,5 +99,5 @@ class StringReader:
         self.dlg.show()
         result = self.dlg.exec_()
         if result:
-            filename = self.dlg.lineEdit.text()
-            import_str(filename)
+            for filename in self.file_list:
+                import_str(filename)
