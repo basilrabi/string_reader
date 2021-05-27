@@ -31,7 +31,7 @@ def import_str(string_file):
                     has_axis_record = True
 
     if len(segments) > 0:
-        vl = QgsVectorLayer('LineString', 'imported_string_file', 'memory')
+        vl = QgsVectorLayer('LineStringZ', 'imported_string_file', 'memory')
         vl.setCrs(QgsProject.instance().crs())
         pr = vl.dataProvider()
         pr.addAttributes(Segment.qgsFields())
