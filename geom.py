@@ -1,7 +1,7 @@
 # pylint: disable=import-error
 
 from qgis.PyQt.QtCore import QVariant
-from qgis.core import QgsFeature, QgsField, QgsGeometry
+from qgis.core import Qgis, QgsFeature, QgsField, QgsGeometry
 from re import sub
 
 class Point:
@@ -23,7 +23,18 @@ class Point:
         if Point.description_count < len(self.descriptions):
             Point.description_count = len(self.descriptions)
 
-    def coordinates(self):
+    def asQgsFeature(self) -> QgsFeature:
+        feature = QgsFeature()
+        feature.setGeometry(QgsGeometry.fromWkt(self.asWKT()))
+        attributes = [self.str_id]
+        attributes.extend(self.descriptions)
+        feature.setAttributes(attributes)
+        return feature
+
+    def asWKT(self) -> str:
+        return f'POINT ({self.coordinates()})'
+
+    def coordinates(self) -> str:
         return f'{self.x} {self.y} {self.z}'
 
 

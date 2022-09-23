@@ -26,6 +26,7 @@
 # pylint: disable=relative-beyond-top-level
 
 import os
+
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QFileDialog
 from . import resources
@@ -100,4 +101,4 @@ class StringReader:
         result = self.dlg.exec_()
         if result:
             for filename in self.file_list:
-                import_str(filename)
+                import_str(filename, self.dlg.checkBox.isChecked(), self.iface)
