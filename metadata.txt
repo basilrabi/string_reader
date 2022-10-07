@@ -2,7 +2,7 @@
 name=String Reader
 qgisMinimumVersion=3.10
 description=Reads SurPac string files
-version=0.3
+version=0.4
 author=Basil Eric C. Rabi
 email=ericbasil.rabi@gmail.com
 about=Reads a string file which is used in SurPac and converts it into 3D line strings.

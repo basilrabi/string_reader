@@ -40,7 +40,7 @@ def import_str(string_file: str, is_point: bool, iface) -> None:
                     has_axis_record = True
 
     if len(segments) > 0 and not is_point:
-        vl = QgsVectorLayer('LineStringZ', 'imported_string_file', 'memory')
+        vl = QgsVectorLayer('LineStringZ', f'String {string_file}', 'memory')
         vl.setCrs(QgsProject.instance().crs())
         pr = vl.dataProvider()
         pr.addAttributes(Segment.qgsFields())
@@ -50,7 +50,7 @@ def import_str(string_file: str, is_point: bool, iface) -> None:
         QgsProject.instance().addMapLayer(vl)
         return
     if len(segments) == 0 and is_point:
-        vl = QgsVectorLayer('PointZ', 'imported_string_file', 'memory')
+        vl = QgsVectorLayer('PointZ', f'String {string_file}', 'memory')
         vl.setCrs(QgsProject.instance().crs())
         pr = vl.dataProvider()
         pr.addAttributes(Segment.qgsFields())
