@@ -88,7 +88,7 @@ class StringReader:
 
     def select_string_file(self):
         files = QFileDialog.getOpenFileNames(
-            self.dlg, 'Select string file', '', '*.str'
+            self.dlg, 'Select string file', '', '*.STR *.str'
         )
         self.file_list = files[0]
         self.dlg.lineEdit.setText(','.join(self.file_list))

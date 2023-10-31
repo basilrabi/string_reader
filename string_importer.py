@@ -1,6 +1,7 @@
 # pylint: disable=import-error
 # pylint: disable=relative-beyond-top-level
 
+import chardet
 from qgis.core import Qgis, QgsProject, QgsVectorLayer
 from re import search
 from .geom import Point, Segment
@@ -12,7 +13,11 @@ def import_str(string_file: str, is_point: bool, iface) -> None:
     points = []
     segments = []
     vertex_counter = 0
-    with open(string_file) as sf:
+    with open(string_file, 'rb') as file:
+        raw_text = file.read()
+        result = chardet.detect(raw_text)
+        encoding = result['encoding']
+    with open(string_file, 'r', encoding=encoding) as sf:
         has_axis_record = False
         for line in sf:
             regex = search(point_pattern, line.strip())
