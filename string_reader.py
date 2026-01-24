@@ -98,7 +98,7 @@ class StringReader:
             self.first_start = False
 
         self.dlg.show()
-        result = self.dlg.exec_()
+        result = self.dlg.exec()
         if result:
             for filename in self.file_list:
                 import_str(filename, self.dlg.checkBox.isChecked(), self.iface)
